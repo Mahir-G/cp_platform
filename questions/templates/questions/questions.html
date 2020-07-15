@@ -1,0 +1,46 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>Dashboard</title>
+    {% endblock %}
+    {% block html-styles %}
+        <style>
+            td, th {
+                border: solid black 2px;
+                text-align: center;
+                padding: 8px;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin: 4px;
+                width: 100%;
+            }
+        </style>
+    {% endblock %}
+    {% block body %}
+        <h1>Questions</h1>
+        <a href="{% url 'create-question' %}"><button>Create New Question</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>QId</th>
+                    <th>Question</th>
+                    <th>Category</th>
+                    <th>Level</th>
+                    <th>Created by</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in questions %}
+            <tr onclick="window.location=`{% url 'view-question' question.id %}`">
+                        <td>{{ question.id }}</td>
+                        <td>{{ question.question }}</td>
+                        <td>{{ question.category }}</td>
+                        <td>{{ question.level }}</td>
+                        <td>{{ question.created_by }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+</html>

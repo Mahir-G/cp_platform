@@ -1,0 +1,16 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>
+            Edit Question
+        </title>
+    {% endblock %}
+    {% block body %}
+        <h1>Edit Question</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Confirm">
+            <a href="{% url 'view-question' question_id %}">Cancel</a>
+        </form>
+    {% endblock %}
+</html>

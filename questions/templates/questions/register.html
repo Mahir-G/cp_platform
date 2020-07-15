@@ -1,0 +1,14 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>User Registration Page</title>
+    {% endblock %}
+    {% block body %}
+        <h1>Register</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit">
+        </form>
+        <p>Already Have an account? <a href="{% url 'login' %}">Login</a></p>
+    {% endblock %}
+</html>

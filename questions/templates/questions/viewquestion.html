@@ -1,0 +1,16 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>Question</title>
+    {% endblock %}
+    {% block body %}
+        <h1>Question {{ question.id }}</h1>
+        <p>{{ question.question }}</p>
+        <p>level: {{ question.level }}</p>
+        <p>category: {{ question.category }}</p>
+        <p>created by: {{ question.created_by }}</p>
+        {% if request.user == question.created_by %}
+            <a href="{% url 'edit-question' question.id %}"><button>Edit</button></a>
+        {% endif %}
+        <a href="{% url 'dashboard' %}"><button>Back</button></a>
+    {% endblock %}
+</html>

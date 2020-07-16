@@ -3,7 +3,7 @@
         <title>Dashboard</title>
     {% endblock %}
     {% block html-styles %}
-        <style>
+<style>
             td, th {
                 border: solid black 2px;
                 text-align: center;
@@ -16,11 +16,9 @@
                 width: 100%;
             }
         </style>
-    {% endblock %}
-    {% block body %}
-        <h1>Questions</h1>
-        <a href="{% url 'create-question' %}"><button>Create New Question</button></a>
-        <a href="{% url 'search' %}"><button>Search</button></a>
+        <h1>Search Result</h1>
+        <a href="{% url 'dashboard' %}"><button>Dashboard</button></a>
+        <a href="{% url 'search' %}"><button>Back to Search</button></a><br>
         <table>
             <thead>
                 <tr>
@@ -32,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for question in questions %}
+                {% for question in result %}
             <tr onclick="window.location=`{% url 'view-question' question.id %}`">
                         <td>{{ question.id }}</td>
                         <td>{{ question.question }}</td>
@@ -44,5 +42,6 @@
                 {% endfor %}
             </tbody>
         </table>
+
     {% endblock %}
 </html>

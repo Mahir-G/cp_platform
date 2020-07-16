@@ -1,0 +1,14 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>Question</title>
+    {% endblock %}
+    {% block body %}
+        <a href="{% url 'add-discussion' ques_id %}"><button>Add Comment</button></a>
+        <a href="{% url 'view-question' ques_id %}"><button>Back To Question</button></a>
+        <br><br>
+        {% for entry in discussion %}
+            {{entry.created_by.username}} : <br>
+            &emsp;{{entry.comment}}<br><br>
+        {% endfor %}
+ {% endblock %}
+</html>

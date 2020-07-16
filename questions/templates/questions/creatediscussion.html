@@ -1,0 +1,13 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>Question</title>
+    {% endblock %}
+    {% block body %}
+        <h1>Add a Comment</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ discussion_form.as_p }}
+            <input type="submit" value="Add">
+        </form>
+ {% endblock %}
+</html>

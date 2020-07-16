@@ -8,6 +8,7 @@
         <p>level: {{ question.level }}</p>
         <p>category: {{ question.category }}</p>
         <p>created by: {{ question.created_by }}</p>
+        <a href="{% url 'view-discussion' question.id %}"><button>Discussion</button></a>
         {% if request.user == question.created_by %}
             <a href="{% url 'edit-question' question.id %}"><button>Edit</button></a>
         {% endif %}

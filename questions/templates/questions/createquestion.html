@@ -7,7 +7,6 @@
         <form action="" method="POST">
             {% csrf_token %}
             {{ question_form.as_p }}
-            {{ discussion_form.as_p }}
             <input type="submit" value="Create">
             <a href="{% url 'dashboard' %}">Cancel</a>
         </form>

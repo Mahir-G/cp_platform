@@ -20,14 +20,15 @@ CATEGORY_CHOICES = [
     ('algos', 'Algorithms')
 ]
 
+
 class Question(models.Model):
     question = models.TextField(max_length=1048)
-    answer = models.CharField(max_length=512)
     level = models.CharField(max_length=8, choices=LEVEL_CHOICES)
     category = models.CharField(max_length=32, choices=CATEGORY_CHOICES)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
+
 class Discussion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    comment = models.CharField(max_length=150)
+    comment = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)

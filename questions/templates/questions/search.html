@@ -1,0 +1,36 @@
+{% extends "questions/base.html" %}
+    {% block title %}
+        <title>Dashboard</title>
+    {% endblock %}
+    {% block html-styles %}
+        <h1>Search Question</h1>
+        <a href="{% url 'dashboard' %}"><button>Dashboard</button></a>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <br>ID <input type="text" name="id" id="id"><br><br>
+            Created By <input type="text" name="created_by" id="created_by"><br><br>
+            Category
+                <select name="category" id="category">
+                    <option value="none">None</option>
+                    <option value="complexity">complexity</option>
+                    <option value="array">array</option>
+                    <option value="linked_list">linked list</option>
+                    <option value="stacks">stacks</option>
+                    <option value="queues">queues</option>
+                    <option value="trees">trees</option>
+                    <option value="graphs">graphs</option>
+                    <option value="heaps">heaps</option>
+                    <option value="algos">algos</option>
+                </select><br><br>
+            Level
+                <select name="level" id="level">
+                    <option value="none">None</option>
+                    <option value="easy">easy</option>
+                    <option value="medium">medium</option>
+                    <option value="hard">hard</option>
+                </select><br><br>
+
+            <input type = "submit" value="submit">
+        </form>
+    {% endblock %}
+</html>
